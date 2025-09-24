@@ -4,7 +4,7 @@
 #include <iomanip>
 
 float area(float diametro) {
-	//trago a definiC'C#o
+	//trago a definição
 	float pi = 3.14159;
 	float expoente = 2;
 
