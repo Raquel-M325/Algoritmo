@@ -2,12 +2,11 @@
 #include <cmath>
 #include <iomanip>
 
-//nao foi finalizado
 
 int divisores(int n){
-    int divs = 0;
-    for (int i == 1; i == n + 1; i++){
-        if (n / i == 0){
+    int divs = 0; 
+    for (int i = 1; i <= n; i++){   //ele irá contar a cada número se é divisivel, tendo o resto 0
+        if (n % i == 0){            //não precisa de uma lista como python
             divs += 1;
         }
     }
