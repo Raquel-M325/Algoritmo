@@ -2,6 +2,12 @@
 #include <cmath>
 #include <iomanip>
 
-int primos(int a, int b){
+bool primo_operacao(int a, int b){
     
+    for (int i = 2; i <= n;i++){
+        if (a % i == 0){
+            i
+        }
+    }
+    return primos
 }
