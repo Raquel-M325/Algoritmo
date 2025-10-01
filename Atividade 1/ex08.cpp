@@ -1,19 +1,20 @@
 #include <iostream>
 #include <cmath>
 
-int mmc(int a, int b){
-    dividir = a / b;
-    resto = a % b;
+int mdc(int a, int b){
+    int dividir = a / b;
+    int resto = a % b;
     while (resto != 0){
         dividir = b / resto;
         resto = b % resto;
-       
     }
 }
 
 int main(){
     int a, b;
-    std::cin >> a >> b >> std::endl;
-
-    std:: cout <<  std::endl;
+    std::cin >> a >> b;
+    int m = mdc(a,b);
+    std:: cout << m << std::endl;
 }
+
+//tentativa
