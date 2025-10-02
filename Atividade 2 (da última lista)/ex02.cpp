@@ -48,5 +48,7 @@ int main(){
     double resposta_d = algorismo_d(n);
     std::cout << resposta_d << std::endl;
 
+    return 0;
+
 }
 

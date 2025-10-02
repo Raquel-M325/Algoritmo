@@ -24,4 +24,5 @@ int main(){
 
     int rb = equacaob(n);
     std::cout << rb << std::endl;
+    return 0;
 }
