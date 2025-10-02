@@ -18,8 +18,6 @@ bool primo(int n){
         
 }
 
-
-
 int main(){
     int n;
     std::cin >> n;
