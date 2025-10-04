@@ -1,9 +1,9 @@
 #include <iostream>
 #include <cmath>
 
-bool primo(int n){
-    int divs = 0
-    for (double i = 1; n / 2; i++){
+bool primo(long long n){
+    long long divs = 0;
+    for (long long i = 1; i <= n / 2; i++){
         if (n % i == 0){
             divs += 1;
         }
@@ -17,7 +17,7 @@ bool primo(int n){
 }
 
 int main(){
-    int n;
+    long long n;
     std::cin >> n;
 
     bool p = primo(n);
@@ -25,4 +25,3 @@ int main(){
     return 0;
 }
 
-//não está finalizado!
