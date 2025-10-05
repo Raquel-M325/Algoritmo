@@ -2,24 +2,18 @@
 #include <cmath>
 
 bool primo(long long n){
-    if (n <= 1){
-        return false;
-    } 
-
     long long divs = 0;
-    for (long long i = 1; i <= n; i++){
+    for (long long i = 1; i <= n / 2; i++){
         if (n % i == 0){
             divs += 1;
         }
     }
-    if (divs == 2){
+    if (divs == 1){
         return true;
     }
-    
     else{
         return false;
     }
-        
 }
 
 int main(){

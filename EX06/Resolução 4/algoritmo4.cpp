@@ -14,11 +14,11 @@ bool primo(long long n){
 
     bool p = true;
     int d = 3;
-    while (p ^ d <= n / 2){
-        if (n % d){
+    while (p && d <= n / 2){
+        if (n % d == 0){
             p = false;
         }
-        long long d += 2;
+        d += 2;
     }
 
     return p;
@@ -32,4 +32,3 @@ int main(){
     std::cout << pri << std::endl;
 }
 
-//não está finalizado!

@@ -1,0 +1,5 @@
+Só irá funcionar se tirar todos esses arquivos 
+destas pastas, para não ter trabalho em colocar
+um endereço diferente e gerar mais erros, acabando
+que modificar ainda mais o arquivo, dos quais eu
+não recomendo!
