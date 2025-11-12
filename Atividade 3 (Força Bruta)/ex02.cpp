@@ -6,7 +6,7 @@ int main() {
     int n;
     std::cin >> n;
 
-    int lista[] = {10, 15, 3, 7};
+    int lista[] = {10, 15, 3, 7}; //de uma lista p
     int lista_size = sizeof(lista) / sizeof(lista[0]); //é len de uma lista em C++
     bool resposta = false;
 
