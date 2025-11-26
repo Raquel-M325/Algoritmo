@@ -10,6 +10,7 @@ vector<int> lista;
 vector<int> lista_removido;
 
 bool remove(int value){
+    lista_removido.clear();
     removido_lista.clear();  // Limpa a lista de removidos antes de começar, para não acumular valores de chamadas anteriores duplicados
 
     for (int i = 0; i < lista.size(); i++){
