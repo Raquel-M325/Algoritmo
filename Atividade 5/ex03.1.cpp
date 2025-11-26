@@ -15,8 +15,9 @@ bool remove(int value){
 
     for (int i = 0; i < lista.size(); i++){
         if (lista[i] == value){
+            int achou = i; //para permanecer os outros elementos repetidos na lista
             for (int j = 0; j < lista.size(); j++){
-                if (lista[j] != value){
+                if (achou != j){
                     removido_lista.push_back(lista[j]);
                 }
                 else{

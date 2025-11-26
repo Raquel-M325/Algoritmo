@@ -24,7 +24,7 @@ bool remove_at(int index){
                     removido_lista.push_back(lista[j]);
                 } else{
                     continue;
-                }5
+                }
            }
            
         }
