@@ -6,7 +6,7 @@ using namespace std;
 vector<int> lista1;
 
 
-unsigned int contar_comuns(const vector<int> &other){
+unsigned int contar_comuns(const vector<int> &other){ #usa o &other como referencia para nao criar uma copia desnecessaria da lista, e o const para garantir que a lista original nao sera modificada, e unsigned int para garantir que o retorno seja sempre positivo
     unsigned int contagem = 0;
     
     for (int i = 0; i < lista1.size(); i++){
