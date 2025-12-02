@@ -2,7 +2,6 @@
 #include <vector>
 #include <chrono>
 
-//escolhe o indice do elemento para tirar da lista, mas nao esta totalmente pronto
 
 using namespace std;
 
