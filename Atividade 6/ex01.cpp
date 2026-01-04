@@ -2,40 +2,43 @@
 
 using namespace std;
 
-bool labirinto(int linha, int coluna){
-    if (linha < 0 || coluna < 0) {
-        return 0; //número inválido
-    }
 
-    int matriz[linha][coluna];
+void matriz_criada(int lab[20][20],int linha, int coluna){
     for (int i = 0; i < linha; i++){
         for (int j = 0; j < coluna; j++){
-            cin >> matriz[i][j];
+            cin >> lab[i][j];
         }
     }
+   }
 
-    if (matriz[0][0] == 1 || matriz[linha-1][coluna-1] == 1){
-        return 0; //caminho bloqueado
+bool labirinto(int lab[20][20], int linha, int coluna, int linha_atual = 0, int coluna_atual = 0){    
+    if (linha_atual >= linha || coluna_atual >= coluna || linha_atual < 0 || coluna_atual < 0 || lab[linha_atual][coluna_atual] != 0){
+        return false; //fora dos limites
     }
-   
+
+    if (linha_atual == linha - 1 && coluna_atual == coluna - 1){
+        return true; //caminho encontrado
+    }
+
+    lab[linha_atual][coluna_atual] = 2; //marca como visitado
+
     bool resposta = false;
 
-    //tentativa de ir no caminho para esquerda
-    resposta = labirinto(linha, coluna, matriz, 0, -1);
+    resposta = labirinto(lab, linha, coluna, linha_atual + 1, coluna_atual); //baixo
+
     if (resposta == false){
-        resposta = labirinto(linha, coluna, matriz, 0, 1); //tentativa de ir no caminho para direita 
+        resposta = labirinto(lab, linha, coluna, linha_atual, coluna_atual + 1); //direita
     }
 
     if (resposta == false){
-        resposta = labirinto(linha, coluna, matriz, -1, 0); //tentativa de ir no caminho para cima
-    } 
-
-    if (resposta == false){
-        resposta = labirinto(linha, coluna, matriz, 1, 0); //tentativa de ir no caminho para baixo
+        resposta = labirinto(lab, linha, coluna, linha_atual, coluna_atual - 1); //esquerda
     }
 
-    return resposta; //retorna true se encontrou o caminho
+    if (resposta == false){
+        resposta = labirinto(lab, linha, coluna, linha_atual - 1, coluna_atual); //cima
+    }
 
+    return resposta; 
 }
 
 int main(){
@@ -45,11 +48,11 @@ int main(){
     cout << "Digite o numero de colunas: ";
     cin >> coluna;
 
+    int lab[20][20];
 
-    if (labirinto() == true){
-        cout << "1" << endl; //caminho encontrado
-    } else { 
-        cout << "0" << endl; //caminho nao encontrado
-    }
+    matriz_criada(lab, linha, coluna);
+
+    cout << labirinto(lab, linha, coluna) << endl;
+
     return 0;
 }
