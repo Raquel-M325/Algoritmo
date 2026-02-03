@@ -2,7 +2,7 @@
 
 using namespace std;
 
-void fazer_matriz(int lab[20][20], int coluna, int linha){
+void fazer_matriz(int lab[20][20], int linha, int coluna){
     for (int i = 0; i < linha; i++){
         for (int j = 0; j < coluna; j++){
             cin >> lab[i][j];
@@ -21,35 +21,33 @@ int labirinto(int lab[20][20], int linha, int coluna, int linha_atual, int colun
 
     lab[linha_atual][coluna_atual] = 2;
 
-    bool resposta = false;
-    int contagem = 0;
-    resposta = labirinto(lab, linha, coluna, linha_atual + 1, coluna_atual);
-    if (resposta == false){
-        resposta = labirinto(lab, linha, coluna, linha_atual, coluna_atual + 1);
-        contagem += 0;
-    } else {
-        contagem += 1;
-    }
+    int direita = labirinto(lab, linha, coluna, linha_atual, coluna_atual + 1);
+    int esquerda = labirinto(lab, linha, coluna, linha_atual, coluna_atual - 1);
+    int cima = labirinto(lab, linha, coluna, linha_atual - 1, coluna_atual);
+    int baixo = labirinto(lab, linha, coluna, linha_atual + 1, coluna_atual);
 
-    if (resposta == false){
-        resposta = labirinto(lab, linha, coluna, linha_atual - 1, coluna_atual);
-        contagem += 0;
-    } else {
-        contagem += 1;
-    }
+    int menor = 100000000; //para comparar
 
-    if (resposta == false){
-        resposta = labirinto(lab, linha, coluna, linha_atual, coluna_atual - 1);
-        contagem += 0;
-    } else {
-        contagem += 1;
+    if(direita != -1){
+        menor = min(menor, direita);
     }
+    if (esquerda != -1){
+        menor = min(menor, esquerda);
+    }
+    if (cima != -1){
+        menor = min(menor, cima);
+    }
+    if (baixo != -1){
+        menor = min(menor, baixo);
+    }
+    
+    lab[linha_atual][coluna_atual] = 0;
 
-    if (resposta == false){
+    if (menor == 100000000){
         return -1;
     }
 
-    return contagem;
+    return menor + 1;
 }
 
 int main(){
@@ -70,6 +68,6 @@ int main(){
 
     fazer_matriz(lab, linha, coluna);
 
-    cout << labirinto(lab, linha, coluna, coluna_atual, linha_atual) << endl;
+    cout << labirinto(lab, linha, coluna, 0, 0) << endl;
     return 0;
 }
