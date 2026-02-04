@@ -35,7 +35,7 @@ void selecao(int a[], unsigned int t){ //notação Oh(n^2)!!!!!
 }
 
 /* TODO: Implementar função */
-void insercao(int a[], unsigned int t){
+void insercao(int a[], unsigned int t){ //notação Oh(n^2)
     int insere, ao_lado; 
     for (unsigned int i = 1; i < t; i++){
         insere = a[i];
@@ -50,7 +50,7 @@ void insercao(int a[], unsigned int t){
     }
 }
 
-void merge(int a[],int inicio_Esquerda, int inicio_Direita, int fim_Direita, int fim_Esquerda) {
+void merge(int a[],int inicio_Esquerda, int inicio_Direita, int fim_Direita, int fim_Esquerda) { //notação Oh(n)
 
     //quantidade de elementos que existem no total
     int tamanho = (fim_Direita - inicio_Direita + 1) + (fim_Esquerda - inicio_Esquerda + 1);
@@ -91,7 +91,7 @@ void merge(int a[],int inicio_Esquerda, int inicio_Direita, int fim_Direita, int
 }
 
 
-void divisao(int a[], int inicio, int fim){
+void divisao(int a[], int inicio, int fim){ //tá participando do merge sort da notação já respondida
     if (inicio < fim){
         int meio = (inicio + fim) / 2;
         divisao(a, inicio, meio); //lado esquerda
@@ -102,7 +102,7 @@ void divisao(int a[], int inicio, int fim){
 }
 
 /* TODO: Implementar função */
-void merge_sort(int a[], unsigned int t){
+void merge_sort(int a[], unsigned int t){ //notação(n log n)
     if (t > 1){
        divisao(a, 0, t - 1);
 
