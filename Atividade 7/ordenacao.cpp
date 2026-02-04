@@ -36,7 +36,9 @@ void selecao(int a[], unsigned int t){ //notação Oh(n^2)!!!!!
 
 /* TODO: Implementar função */
 void insercao(int a[], unsigned int t){
-    
+    for (unsigned int i = 0; i < t - 1; i++){
+      
+    }
 }
 
 /* TODO: Implementar função */
