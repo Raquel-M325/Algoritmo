@@ -50,5 +50,61 @@ void insercao(int a[], unsigned int t){
     }
 }
 
+void merge(int a[],int inicio_Esquerda, int inicio_Direita, int fim_Direita, int fim_Esquerda) {
+
+    //quantidade de elementos que existem no total
+    int tamanho = (fim_Direita - inicio_Direita + 1) + (fim_Esquerda - inicio_Esquerda + 1);
+
+    int* aux = new int[tamanho];
+
+    int anda_Esquerda = inicio_Esquerda;
+    int anda_Direita = inicio_Direita;
+    int anda_auxiliar = 0;
+
+    //enquanto houver elementos em ambos lados
+    while (anda_Esquerda <= fim_Esquerda && anda_Direita <= fim_Direita) {
+
+        //se for menor
+        if (a[anda_Esquerda] < a[anda_Direita]) {
+            aux[anda_auxiliar++] = a[anda_Esquerda++];
+        } else {
+            aux[anda_auxiliar++] = a[anda_Direita++];
+        }
+    }
+
+    //se enquanto sobrou algo na esquerda
+    while (anda_Esquerda <= fim_Esquerda) {
+        aux[anda_auxiliar++] = a[anda_Esquerda++];
+    }
+
+    //se enquanto sobrou algo na direita
+    while (anda_Direita <= fim_Direita) {
+        aux[anda_auxiliar++] = a[anda_Direita++];
+    }
+
+    int anda_a = inicio_Esquerda;
+    for (int i = 0; i < tamanho; i++) {
+        a[anda_a++] = aux[i];
+    }
+
+    delete[] aux;
+}
+
+
+void divisao(int a[], int inicio, int fim){
+    if (inicio < fim){
+        int meio = (inicio + fim) / 2;
+        divisao(a, inicio, meio); //lado esquerda
+        divisao(a, meio + 1, fim); //lado direito
+        merge(a, inicio, meio + 1, fim, meio); //ao todo
+
+       } 
+}
+
 /* TODO: Implementar função */
-void merge_sort(int a[], unsigned int t);
+void merge_sort(int a[], unsigned int t){
+    if (t > 1){
+       divisao(a, 0, t - 1);
+
+    }
+}
