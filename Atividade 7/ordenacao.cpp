@@ -18,14 +18,14 @@ bool ordenado(int a[],  unsigned int t){
 /* TODO: Implementar função */
 void selecao(int a[], unsigned int t){ //notação Oh(n^2)!!!!!
     for (unsigned int i = 0; i < t - 1; i++){
-        for (unsigned int j = i + 1; j < t; j++){
-            int menor = i;
+        unsigned int menor = i;
 
+        for (unsigned int j = i + 1; j < t; j++){
             //ver quem é o menor para mudar
-                if (a[j] < a[menor]){
-                    menor = j;
-                }
+            if (a[j] < a[menor]){
+                menor = j;
             }
+        }
 
         //para permanecer a mudança  
         int aux = a[i];
@@ -43,7 +43,7 @@ void insercao(int a[], unsigned int t){ //notação Oh(n^2)
         
         while (insere < a[ao_lado] && ao_lado >= 0){
             a[ao_lado + 1] = a[ao_lado]; //empurrei
-            ao_lado = ao_lado - 1 //fica empurrando
+            ao_lado = ao_lado - 1; //fica empurrando
         }
         
         a[ao_lado + 1] = insere;
